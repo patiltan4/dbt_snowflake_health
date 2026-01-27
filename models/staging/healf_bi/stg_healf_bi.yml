@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_healf_bi_customers
+    description: "Staging model for customers"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_healf_bi_orders
+    description: "Staging model for orders"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+
+  - name: stg_healf_bi_order_items
+    description: "Staging model for order items"
+    columns:
+      - name: order_item_id
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        tests:
+          - not_null
+
+  - name: stg_healf_bi_products
+    description: "Staging model for products"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique

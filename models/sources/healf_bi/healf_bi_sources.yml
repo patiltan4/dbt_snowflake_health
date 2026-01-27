@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: healf_bi
+    database: HEALF
+    schema: HEALF_BI
+    description: "Raw landing tables loaded from CSV files for Healf analytics"
+    config:
+      freshness:
+        warn_after:
+          count: 24
+          period: hour
+        error_after:
+          count: 48
+          period: hour
+      loaded_at_field: created_at
+
+    tables:
+      - name: customers
+        description: "Raw customers data from source CSV"
+
+      - name: orders
+        description: "Raw orders data from source CSV"
+
+      - name: order_items
+        description: "Raw order line items from source CSV"
+
+      - name: products
+        description: "Raw products reference data from source CSV"
